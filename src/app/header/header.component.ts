@@ -8,13 +8,20 @@ import {Router} from "@angular/router";
 export class HeaderComponent implements OnInit {
   user: any;
   loggedin: any;
+  admin: any;
+  isAdmin: any;
   constructor(private router: Router) {
     this.user = localStorage.getItem('User');
-    if(this.user==null){
-      this.loggedin=false;
+    if(this.user === null) {
+      this.loggedin = false;
     } else{
-      this.loggedin=true;
-      this.router.navigate(['/dashboard']);
+      this.loggedin = true;
+      this.admin = localStorage.getItem('admin');
+      if(this.admin === null) {
+        this.isAdmin = false;
+      } else{
+        this.isAdmin = true;
+      }
     }
   }
 
@@ -22,6 +29,9 @@ export class HeaderComponent implements OnInit {
   }
   logout(){
     localStorage.removeItem('User');
+    if(localStorage.getItem('admin')){
+      localStorage.removeItem('admin');
+    }
     this.router.navigate(['/home']);
   }
 

@@ -7,14 +7,7 @@ import {Router} from "@angular/router";
 })
 export class HomeComponent implements OnInit {
 
-  user: any;
-  constructor(private router: Router) {
-    this.user = localStorage.getItem('User');
-    if(this.user==null){
-      //do nothing
-    } else{
-      this.router.navigate(['/dashboard']);
-    }
+  constructor() {
   }
 
   ngOnInit() {

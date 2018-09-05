@@ -1,26 +1,16 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" style="border:0;border-radius:0;">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">NetElixir</a>
     </div>
     <ul class="nav navbar-nav">
       <li><a [routerLink]="['/dashboard']">Dashboard</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
+      <li><a [routerLink]="['/reviews']">Reviews</a></li>
+      <li *ngIf="loggedin && isAdmin"><a [routerLink]="['/employees']">Employees</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
-          <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">View Employees</a></li>
-          <li><a href="#">Add Employee</a></li>
-          <li><a href="#">Update Employee</a></li>
-          <li><a href="#">Delete Employee</a></li>
-        </ul>
-      </li>
       <li *ngIf="!loggedin"><a [routerLink]="['/login']"><span class="fa fa-sign-in"></span> Login</a></li>
-      <li *ngIf="loggedin"><a (click)="logout()"><span class="fa fa-sign-out"></span> Logout</a></li>
+      <li *ngIf="loggedin"><a (click)="logout()" style="cursor:pointer"><span class="fa fa-sign-out"></span> Logout</a></li>
     </ul>
   </div>
 </nav>

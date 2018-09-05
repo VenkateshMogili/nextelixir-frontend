@@ -1,0 +1,17 @@
+<form (ngSubmit)="submitReview()" novalidate #f="ngForm">
+  <div class="container">
+    <div class="col-md-4"></div>
+    <div class="row">
+      <div class="col-md-4" style="text-align:left">
+        <textarea name="review" [(ngModel)]="model.review"></textarea>
+      </div>
+    </div>
+
+    <div class="col-md-4"></div>
+    <div class="row">
+      <div class="col-md-12">
+        <input type="submit" value="Submit" class="btn btn-primary" [disabled]="!f.form.valid"/>
+      </div>
+    </div>
+  </div>
+</form>

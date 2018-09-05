@@ -1,0 +1,28 @@
+<app-header></app-header>
+<h1 class="text-primary text-center">Reviews</h1>
+<div *ngIf="reviewslen<=0">
+  <p class="text-danger">No Available Feedback Reviews</p>
+</div>
+<div *ngIf="reviewslen>0">
+  <table class="table">
+    <thead>
+    <tr class="bg-primary">
+      <th>Email</th>
+      <th>View Review</th>
+      <th>Edit Review</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let review of reviews">
+    <tr class="success" *ngIf="review['status']">
+      <td>{{review['email']}}</td>
+      <td>{{review['review']}} <a href="#"><i class="fa fa-eye"></i></a></td>
+      <td><button class="btn btn-success btn-sm"><i class="fa fa-pencil"></i></button></td>
+    </tr>
+    <tr *ngIf="!review['status']">
+      <td>{{review['email']}}</td>
+      <td>{{review['review']}}</td>
+      <td><button class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
