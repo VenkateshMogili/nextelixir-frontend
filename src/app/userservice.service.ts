@@ -12,5 +12,9 @@ export class UserserviceService {
     var password = data['password'];
     return this.hc.get('http://localhost:4000/api/login/'+email+'/'+password);
   }
+  update(data){
+  	console.log(data);
+    return this.hc.put('http://localhost:4000/api/update/',data);
+  }
 
 }

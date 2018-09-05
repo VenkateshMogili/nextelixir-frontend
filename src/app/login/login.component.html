@@ -2,7 +2,7 @@
 <h1 style="text-align:center;border-bottom:3px solid dodgerblue;font-family:arial;color:dodgerblue">Welcome to NetElixir</h1>
 <div style="text-align:center;margin-top:10%">
   <img src="assets/usericon.png" style="width:200px;height:200px;border-radius:100px;"><br/><br>
-  <form (ngSubmit)="validateLogin()" novalidate #f="ngForm">
+  <form (ngSubmit)="updateEmployee()" novalidate #f="ngForm">
     <div class="container">
       <div class="col-md-4"></div>
       <div class="row">
@@ -30,6 +30,7 @@
         <div class="row">
         <div class="col-md-12">
           <input type="submit" value="Login" class="btn btn-primary" [disabled]="!f.form.valid"/>
+          <input type="submit" value="Update" class="btn btn-primary" [disabled]="!f.form.valid"/>
         </div>
         </div>
       </div>

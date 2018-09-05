@@ -35,5 +35,19 @@ export class LoginComponent implements OnInit {
         }
       });
   }
+  updateEmployee(){
+    console.log(this.model);
+    this.service.update(this.model).subscribe(
+      data=>{
+        console.log(data);
+        if(data['success']){
+          alert('Logged in successfully...');
+          localStorage.setItem('User',JSON.stringify(data));
+          this.router.navigate(['/dashboard']);
+        } else{
+          alert('Wrong username and password');
+        }
+      });
+  }
 
 }
